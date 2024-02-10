@@ -1,0 +1,264 @@
+<!-- <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+   
+    <link rel="manifest" href="/manifest.json" />
+     -->
+    <title>React App</title>
+    <script defer="" src="/static/js/bundle.js"></script>
+    <style>
+    </style>
+    <style>
+      body {
+        block-size: border-box;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        width: 100vw;
+        height: 100vh;
+        background-color: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      body #root {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      body .center {
+        width: 35%;
+        height: 35px;
+        background: white;
+        padding: 68px 49px;
+      }
+      body .searchWrapper {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        min-height: 22px;
+        padding: 13px !important;
+        position: relative;
+      }
+      body .showCheckbox {
+        border-radius: 50%;
+      }
+      
+    </style>
+    <style type="text/css">
+      .multiSelectContainer,
+      .multiSelectContainer *,
+      .multiSelectContainer :after,
+      .multiSelectContainer :before {
+        box-sizing: border-box;
+      }
+      .multiSelectContainer {
+        position: relative;
+        text-align: left;
+        width: 100%;
+      }
+      .disable_ms {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .display-none {
+        display: none;
+      }
+      .searchWrapper {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        min-height: 22px;
+        padding: 5px;
+        position: relative;
+      }
+      .multiSelectContainer input {
+        background: transparent;
+        border: none;
+        margin-top: 3px;
+      }
+      .multiSelectContainer input:focus {
+        outline: none;
+      }
+      .chip {
+        align-items: center;
+        background: #0096fb;
+        border-radius: 11px;
+        color: #fff;
+        display: inline-flex;
+        font-size: 13px;
+        line-height: 19px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        padding: 4px 10px;
+      }
+      .chip,
+      .singleChip {
+        white-space: nowrap;
+      }
+      .singleChip {
+        background: none;
+        border-radius: none;
+        color: inherit;
+      }
+      .singleChip i {
+        display: none;
+      }
+      .closeIcon {
+        cursor: pointer;
+        float: right;
+        height: 13px;
+        margin-left: 5px;
+        width: 13px;
+      }
+      .optionListContainer {
+        background: #fff;
+        border-radius: 4px;
+        margin-top: 1px;
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+      }
+      .multiSelectContainer ul {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: block;
+        margin: 0;
+        max-height: 250px;
+        overflow-y: auto;
+        padding: 0;
+      }
+      .multiSelectContainer li {
+        padding: 10px;
+      }
+      .multiSelectContainer li:hover {
+        background: #0096fb;
+        color: #fff;
+        cursor: pointer;
+      }
+      .checkbox {
+        margin-right: 10px;
+      }
+      .disableSelection {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .highlightOption {
+        background: #0096fb;
+        color: #fff;
+      }
+      .displayBlock {
+        display: block;
+      }
+      .displayNone {
+        display: none;
+      }
+      .notFound {
+        display: block;
+        padding: 10px;
+      }
+      .singleSelect {
+        padding-right: 20px;
+      }
+      li.groupHeading {
+        color: #908e8e;
+        padding: 5px 15px;
+        pointer-events: none;
+      }
+      li.groupChildEle {
+        padding-left: 30px;
+      }
+      .icon_down_dir {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 14px;
+      }
+      .icon_down_dir:before {
+        content: "\e803";
+      }
+      .custom-close {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div id="root">
+        <div class="center">
+          <div>
+            <div
+              class="multiselect-container multiSelectContainer"
+              id="multiselectContainerReact"
+            >
+              <div class="search-wrapper searchWrapper">
+                <input
+                  type="text"
+                  class="searchBox"
+                  id="search_input"
+                  name="search_name_input"
+                  placeholder="Select"
+                  autocomplete="off"
+                  value=""
+                />
+              </div>
+              <div class="optionListContainer displayNone">
+                <ul class="optionContainer">
+                  <li class="option highlightOption highlight">
+                    <input
+                      type="checkbox"
+                      readonly=""
+                      class="checkbox"
+                    />options1
+                  </li>
+                  <li class="option">
+                    <input
+                      type="checkbox"
+                      readonly=""
+                      class="checkbox"
+                    />options2
+                  </li>
+                  <li class="option">
+                    <input
+                      type="checkbox"
+                      readonly=""
+                      class="checkbox"
+                    />options3
+                  </li>
+                  <li class="option">
+                    <input
+                      type="checkbox"
+                      readonly=""
+                      class="checkbox"
+                    />options4
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
